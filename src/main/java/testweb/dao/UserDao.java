@@ -1,15 +1,14 @@
-package testweb.service;
+package testweb.dao;
 
 import testweb.model.User;
 
-import javax.validation.Valid;
 import java.util.List;
 
-public interface UserService {
+public interface UserDao {
 
     List<User> getAllUsers();
     void add(User user);
     void delete(int id);
-    void edit(@Valid User user);
+    void edit(User user);
     User getById(int id);
 }

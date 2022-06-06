@@ -20,12 +20,12 @@ public class UserController {
 
     @GetMapping("/")
     public String printUsers(ModelMap model) {
-        model.addAttribute(userService.allUsers());
+        model.addAttribute(userService.getAllUsers());
         return "user";
     }
 
     @PostMapping
-    public String add(@ModelAttribute("user") User user,
+    public String addUser(@ModelAttribute("user") User user,
                       @RequestParam("name") String name,
                       @RequestParam("age") int age,
                       @RequestParam("email") String email) {
@@ -34,19 +34,19 @@ public class UserController {
     }
 
     @GetMapping("/{id}/delete")
-    public String delete(@PathVariable("id") int id) {
+    public String deleteUser(@PathVariable("id") int id) {
         userService.delete(id);
         return "redirect:/";
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(ModelMap model, @PathVariable("id") int id) {
+    public String editUser(ModelMap model, @PathVariable("id") int id) {
         model.addAttribute("user", userService.getById(id));
         return "editUser";
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
         userService.edit(user);
         return "redirect:/";
     }

@@ -1,9 +1,8 @@
 package testweb.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import testweb.dao.UserDAO;
+import testweb.dao.UserDao;
 import testweb.model.User;
 
 import javax.validation.Valid;
@@ -12,17 +11,16 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserDAO userDAO;
+    private UserDao userDAO;
 
-    @Autowired
-    public void setUserDAO(UserDAO userDAO) {
+    public void setUserDAO(UserDao userDAO) {
         this.userDAO = userDAO;
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<User> allUsers() {
-        return userDAO.allUsers();
+    public List<User> getAllUsers() {
+        return userDAO.getAllUsers();
     }
 
     @Transactional
