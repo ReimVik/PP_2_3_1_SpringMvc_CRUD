@@ -8,6 +8,7 @@ import testweb.model.User;
 import javax.validation.Valid;
 import java.util.List;
 
+@Transactional
 @Service
 public class UserServiceImpl implements UserService {
 
