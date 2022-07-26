@@ -8,7 +8,7 @@ import testweb.model.User;
 import javax.validation.Valid;
 import java.util.List;
 
-@Transactional
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -42,7 +42,6 @@ public class UserServiceImpl implements UserService {
         userDAO.edit(user);
     }
 
-    @Transactional
     @Override
     public User getById(int id) {
         return userDAO.getById(id);
